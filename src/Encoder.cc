@@ -47,8 +47,22 @@ double Encoder::quant_error(int adc){
 	return LSB*(1<<(rng-1))/2.;
 };
 
-TString Encoder::description(){
+std::string Encoder::description(){
   char text[256];
   sprintf(text,"exp_%i_man_%i_lsb_%.2f",NUM_EXP_BITS,NUM_MAN_BITS,LSB);
-  return TString(text);
+  return std::string(text);
 };
+
+#include <boost/python.hpp>
+using namespace boost::python;
+
+BOOST_PYTHON_MODULE(Encoder)
+{
+  // Create the Python type object for our extension class and define __init__ function.
+  class_<Encoder>("Encoder", init<int,int,double>())
+	.def("encode", &Encoder::encode)
+	.def("decode", &Encoder::decode)
+	.def("description", &Encoder::description)
+    .def("quant_error", &Encoder::quant_error);				  
+}
+

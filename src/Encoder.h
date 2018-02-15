@@ -2,7 +2,7 @@
 #include <cmath>
 #include <math.h>
 #include <cstdio>
-#include "TString.h"
+#include <string>
 
 class Encoder {
 
@@ -25,5 +25,5 @@ public :
 
   double quant_error(int adc);
 
-  TString description();
+  std::string description();
 };
