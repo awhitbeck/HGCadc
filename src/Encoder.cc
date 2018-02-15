@@ -63,6 +63,9 @@ BOOST_PYTHON_MODULE(Encoder)
 	.def("encode", &Encoder::encode)
 	.def("decode", &Encoder::decode)
 	.def("description", &Encoder::description)
-    .def("quant_error", &Encoder::quant_error);				  
+    .def("quant_error", &Encoder::quant_error)
+	.def_readwrite("LSB", &Encoder::LSB)
+	.def_readwrite("NUM_MAN_BITS", &Encoder::NUM_MAN_BITS)
+	.def_readwrite("NUM_EXP_BITS", &Encoder::NUM_EXP_BITS);				  
 }
 
