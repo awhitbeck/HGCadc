@@ -34,9 +34,9 @@ double Encoder::decode(int adc){
 
   // std::cout << "adc: " << adc << " range: " << rng << " mantissa: " << man << " charge/LSB: " << (1<<(rng+NUM_MAN_BITS-1)) + (1<<(rng-1))*man << std::endl;
   if( rng == 0 ) 
-	return man;
+    return man*LSB;
   else
-	return (1<<(rng+NUM_MAN_BITS-1)) + (1<<(rng-1))*man;
+    return ((1<<(rng+NUM_MAN_BITS-1)) + (1<<(rng-1))*man)*LSB;
 };
 
 double Encoder::quant_error(int adc){
