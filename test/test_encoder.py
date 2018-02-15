@@ -8,3 +8,6 @@ print e.encode(100000.)
 print e.decode(200)
 print e.quant_error(200)
 print e.description()
+print e.NUM_MAN_BITS
+print e.NUM_EXP_BITS
+print e.LSB
